@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Let's hear some stories!</h1>
+        <ul class="list-group">
+            <li v-for="(story, index) in stories" class="list-group-item">
+                {{ index }} {{ story.writer }} said "{{ story.plot }}"
+            </li>
+        </ul>
+        <pre>{{ $data }}</pre>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.js"></script>
+<script>
+    new Vue({
+        el: '.container',
+        data: {
+            stories: [
+                {
+                    plot: "I crashed my car today!",
+                    writer: "Alex"
+                },
+                {
+                    plot: "Yesterday, someone stole my bag!",
+                    writer: "John"
+                },
+                {
+                    plot: "Someone ate my chocolate...",
+                    writer: "John"
+                },
+                {
+                    plot: "I ate someone's chocolate...",
+                    writer: "Alex"
+                },
+            ]
+        }
+    })
+</script>
+</html>
