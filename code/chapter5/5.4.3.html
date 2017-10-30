@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Upvote</title>
+    <title>Hello Vue</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
@@ -23,11 +23,6 @@
             <!-- 입력을 숫자로 파싱하기 위해
                 특별한 한정자인 'number'를 사용합니다. -->
             <input v-model.number="b" class="form-control">
-            <!-- submit 이벤트는 더는 페이지를 새로고침하지 않습니다. -->
-            <button type="submit" @click.prevent="calculate"
-                class="btn btn-primary">
-                Calculate
-            </button>
         </form>
         <h2>Result: {{a}}  {{operator}}  {{b}} = {{c}}</h2>
         <pre>
@@ -42,26 +37,25 @@
         data: {
             a: 1,
             b: 2,
-            c: null,
             operator: "+",
         },
-        methods: {
-            calculate: function() {
+        computed: {
+            c: function () {
                 switch (this.operator) {
                     case "+":
-                        this.c = this.a + this.b
+                        return this.a + this.b
                         break;
                     case "-":
-                        this.c = this.a - this.b
+                        return this.a - this.b
                         break;
                     case "*":
-                        this.c = this.a * this.b
+                        return this.a * this.b
                         break;
                     case "/":
-                        this.c = this.a / this.b
+                        return this.a / this.b
                         break;
                 }
-             }
+            }
         }
     })
 </script>
